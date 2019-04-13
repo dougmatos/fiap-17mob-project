@@ -1,0 +1,7 @@
+body{
+    background: #f8f9fa;
+}
+.container-fluid h1{
+    font-size: 1.5em;
+    margin-top: 15px;
+}
