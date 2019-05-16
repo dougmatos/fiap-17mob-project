@@ -19,10 +19,17 @@
 var app = {
     // Application Constructor
     initialize: function() {
+        
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
         
         document.getElementById('btn-login').addEventListener('click', () => {
-            console.log('aeee');
+
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('senha').value;
+
+            firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+                main.errorArea(error.message);
+            });
         });
     },
 
