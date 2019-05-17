@@ -9,6 +9,9 @@
   "installed_plugins": {
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "br.com.fiap.projetoFinal"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "br.com.fiap.projetoFinal"
     }
   },
   "dependent_plugins": {}

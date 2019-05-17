@@ -2,7 +2,7 @@ var principal = {
 
     initialize: function () {
 
-        console.log(main.userLoged);    
+        //console.log(main.userLoged);    
 
         
         //f (!user) this.goToLoginPage();

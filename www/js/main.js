@@ -6,6 +6,23 @@ var main = {
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 this.userLoged = user;
+
+                this.localUser = {
+                    email: user.email,
+                    uid: user.uid,
+                    displayName: user.displayName,
+                    photoUrl: user.photoURL
+                };
+
+                this.db.collection('users')
+                    .where('user_id', '==', this.localUser.uid)
+                    .get().then(snapshot => {
+                        if(!snapshot.empty){
+                            localUser.githubUser = snapshot.doc[0].githubUser
+                        }
+                    });
+
+                console.log(this.localUser);
                 if (!this.isWherePrivatePage() && !this.isWhereSignInPage())
                     window.location = 'principal.html';
                 
@@ -16,6 +33,10 @@ var main = {
             this.onStart();
         });
     },
+    userLoged: {},
+    localUser:{},
+    storage: {},
+    db: {},
     initializeFirebase: function(){
         var config = {
             apiKey: "AIzaSyCnu4z2YMPZJ4HGoPkd0AOTwdM6R0CixFo",
@@ -26,10 +47,12 @@ var main = {
             messagingSenderId: "19026174749"
         };
         firebase.initializeApp(config);
-        firebase.auth().languageCode = 'pt-br';
+        firebase.auth().languageCode = 'ptbr';
+        this.storage = firebase.storage().ref().child('pictures');
+        this.db = firebase.firestore();
     },
     isWherePrivatePage: function(){
-        return window.location.href.indexOf('principal') !== -1;
+        return window.location.href.indexOf('principal') !== -1 || window.location.href.indexOf('meu-cadastro') !== -1;
     },
     isWhereSignInPage: function(){
         return window.location.href.indexOf('cadastro') !== -1;
@@ -47,8 +70,7 @@ var main = {
             errorArea.appendChild(el);
         }
         errorArea.style.display = "block";
-    },
-    userLoged: {}
+    }
 };
 
 main.initialize();
