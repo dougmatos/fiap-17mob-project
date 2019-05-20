@@ -21,18 +21,11 @@ var cadastro = {
         let formArea = document.getElementById('form-cadastro');
         formArea.innerHTML = '<div class="alert alert-success">Cadastro efetuado com sucesso!</div>' + 
             '<p class="text-left w-100">Você será direcionado para a tela inicial</p>';
-
-        var user = firebase.auth().currentUser;
-        user.updateProfile({
-            displayName: githubUser
-        }).then(function () {
-            setTimeout(() => window.location = 'principal.html', 2000);
-        });
+        setTimeout(() => window.location = 'principal.html', 2000);
     },
     getItemsForm: function() {
         return {
             email: document.getElementById('email').value,
-            githubUser: document.getElementById('githubUser').value,
             password: document.getElementById('senha').value,
             passwordConfirmation: document.getElementById('senha2').value,
             errors: [],
@@ -40,8 +33,6 @@ var cadastro = {
                 this.errors = [];
                 if(this.email === '')
                     this.errors.push('Digite um e-mail');
-                if(this.githubUser === '')
-                    this.errors.push('Digite o seu usuário do github');
                 if(this.password === '')
                     this.errors.push('Digite uma senha');
                 if(this.passwordConfirmation === '')

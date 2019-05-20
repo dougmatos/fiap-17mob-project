@@ -1,4 +1,4 @@
-#Sun May 19 22:04:55 BRT 2019
+#Sun May 19 22:33:48 BRT 2019
 base.0=C\:\\Users\\dougm\\Desktop\\Faculdade\\Cordova\\fiap-17mob-project\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

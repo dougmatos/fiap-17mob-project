@@ -3,7 +3,6 @@ var meuCadastro = {
     document.getElementById('email').value = main.localUser.email || '';
     document.getElementById('img-user').src = (main.localUser.photo) ? 'data:image/jpeg;base64,' + main.localUser.photo : "img/default-photo.png";
     document.getElementById('name').value = main.localUser.displayName || '';
-    document.getElementById('github-user').value = main.localUser.githubUser || '';
   },
   initialize: function () {
 
@@ -42,6 +41,15 @@ var meuCadastro = {
       main.db.collection('users').doc(main.localUser.uid).set({
         photo: null
       });
+    });
+
+    document.querySelector('.btn-salvar-cadastro').addEventListener('click', function(ev) {
+      ev.stopPropagation();
+      var user = firebase.auth().currentUser;
+      user.updateProfile({
+        displayName: document.getElementById('name').value
+      }).then(() => alert('cadastro atualizado!'));
+
     });
   },
   goToLoginPage: function(){
