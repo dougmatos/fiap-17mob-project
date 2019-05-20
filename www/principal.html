@@ -33,17 +33,26 @@
         </nav>
         <div class="row">
             <div class="col-12">
-                <h1>Meu Github - repositorios</h1>
+                <h1>Repositorios</h1>
                 <hr />
-                <p class="text-small">Essa é sua lista de repositórios</p>
+                <p class="text-small">Digite o nome de um usuário do github para ver a lista de repositorios</p>
+            </div>
+            <div class="col-12 form-group">
+                <div class="row">
+                    <div class="col-9">
+                        <input type="text" class="form-control" id="username" />
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-primary" id="btn-buscar">Buscar</button>
+                    </div>
+                </div>
             </div>
         </div>
         
         <div class="row">
             <div class="col-12 mt-3">
-                <ul>
-                    <li>asdfg</li>
-                    <li>gfdsa</li>
+                <div class="alert alert-info" id="msg-nao-encontrado" style="display:none;">Não foi encontrado um usuário com o texto digitado</div>
+                <ul style="list-style:none;padding:0;margin:0;" id="repos">
                 </ul>
             </div>
         </div>
@@ -54,6 +63,7 @@
     <script type="text/javascript" src="js/jquery-3.4.0.slim.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/principal.js"></script>
 </body>
