@@ -33,14 +33,50 @@
         </nav>
         <div class="row">
             <div class="col-12">
-                <h1>Meu Github - Meu cadastro</h1><hr />
+                <h1>Meu cadastro</h1><hr />
             </div>
         </div>
-        <form method="GET" onsubmit="savarMeuCadastro();" class="row">
+        <form method="GET" action="javascript:savarMeuCadastro();" onsubmit="return false;" class="row">
+            <div class="col-6 mb-3"  style="min-height: 160px">
+                <img src="" class="img-fluid" id="img-user" />
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-12 align-bottom">
+                        <button class="btn btn-outline-primary w-100 btn-camera">Foto da câmera</button>
+                        <button class="btn btn-outline-primary w-100 mt-3 btn-galeria">Foto da galeria</button>
+                        <button class="btn btn-outline-danger w-100 mt-3 btn-remover-foto">Remover a foto</button>
 
-            <div class="col-12">
-                <label for="emil">E-mail</label>
+                        <input type="file" style="display: none;" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 form-group">
+                <label for="email" class="mb-0">E-mail</label>
+                <p class="text-muted mt-0">Seu e-mail não pode ser alterado</p>
                 <input id="email" disabled="disabled" type="text" class="form-control" />
+            </div>
+            <div class="col-12 form-group">
+                <label for="name">Nome</label>
+                <input id="name" type="text" class="form-control" />
+            </div>
+            <div class="col-12 form-group">
+                    <label for="github-user">User do Github</label>
+                    <input id="github-user" type="text" class="form-control" />
+                </div>
+            <div class="col-12 mt-4">
+                <div class="alert alert-info">Utilize os campos abaixo somente se quiser alterar a sua senha</div>
+            </div>
+            <div class="col-12 form-group">
+                <label for="senha-atual">Senha atual</label>
+                <input id="senha-atual" type="text" class="form-control" />
+            </div>
+            <div class="col-12 form-group">
+                <label for="senha-nova">Nova senha</label>
+                <input id="senha-nova" type="text" class="form-control" />
+            </div>
+            <div class="col-12 mb-5">
+                <button class="btn btn-primary w-100 mt-4" type="submit">Salvar as informações</button>
             </div>
         </form>
         

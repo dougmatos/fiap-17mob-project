@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -17,11 +16,16 @@
             <div class="col-12">
                 <h1>Meu Github - cadastro</h1>
                 <hr />
-                <p class="text-small">Preencha os campos abaixo e clique em "cadastrar" para finalizar seu cadastro.</p>
+                <p id="instucoes" class="text-small">Preencha os campos abaixo e clique em "cadastrar" para finalizar seu cadastro.</p>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 mt-3">
+            <div class="col-12">
+                <div class="alert alert-danger" id="message-error" style="display:none;"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="form-cadastro" class="col-12 mt-3">
                 <div class="form-group">
                     <label for="email">E-mail</label>
                     <input type="email" required class="form-control" name="email" id="email" />
@@ -50,6 +54,8 @@
 
     </div>
     <script type="text/javascript" src="cordova.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/cadastro.js"></script>
 </body>
 

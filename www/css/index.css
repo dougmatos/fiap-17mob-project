@@ -5,3 +5,10 @@ body{
     font-size: 1.5em;
     margin-top: 15px;
 }
+
+.navbar-nav{
+    margin-top: 15px;
+}
+.nav-item{
+    padding:5px 15px;
+}
