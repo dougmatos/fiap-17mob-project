@@ -15,9 +15,12 @@ var main = {
                 this.db.collection('users').doc(this.localUser.uid)
                     .get().then(snapshot => {
                         if(snapshot.exists){
-                            this.localUser.photo = snapshot.data().photo;
-                            this.onStart();
+                            var data = snapshot.data() || {};
+                            this.localUser.photo = data.photo;
                         }
+                        this.onStart();
+                    }).catch(error => {
+                        this.onStart();
                     });
 
                 if (!this.isWherePrivatePage() && !this.isWhereSignInPage())
@@ -30,12 +33,16 @@ var main = {
             
         });
 
-        document.getElementById('btn-sair').addEventListener('click', () =>
-            firebase.auth().signOut().then(() => this.goToLoginPage()));
+        let btnSair = document.getElementById('btn-sair');
+        
+        if(btnSair){
+            btnSair.addEventListener('click', () =>
+                firebase.auth().signOut().then(() => this.goToLoginPage()));
+        }
+        
     },
     userLoged: {},
     localUser:{},
-    storage: {},
     db: {},
     initializeFirebase: function(){
         var config = {
@@ -47,8 +54,7 @@ var main = {
             messagingSenderId: "19026174749"
         };
         firebase.initializeApp(config);
-        firebase.auth().languageCode = 'ptbr';
-        this.storage = firebase.storage().ref().child('pictures');
+        firebase.auth().languageCode = 'pt-br';
         this.db = firebase.firestore();
     },
     isWherePrivatePage: function(){
